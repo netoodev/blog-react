@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import logoFacebook from "svg/icon-facebook.svg";
 import logoInstagram from "svg/icon-instagram.svg";
 import logoTwitter from "svg/icon-twitter.svg";

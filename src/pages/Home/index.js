@@ -1,24 +1,38 @@
-import logo from "svg/blog.svg";
+import starIcon from "svg/icon-star.svg";
+
+// Components
+import Hero from "./Hero";
+import Banner from "./Banner";
+import Card from "./Card";
+import Main from "./Main";
 
 const Home = () => {
   return (
     <>
+      <Hero />
+
       <section className="container">
         <div className="row">
-          <div className="grid-6">
-            <h1 className="h0">
-              blog<span>.</span>
-            </h1>
-            <p className="mt-1">
-              Um blog para todos. Escrever. Ler. Comentar. Contribuir. Aprender.
-              Conectar.
+          <div className="grid-5">
+            <img
+              src={starIcon}
+              className="icon-l"
+              alt="Ícone de Destaque"
+            />
+
+            <h3 className="mt-2">Os melhores e mais bem votados posts do mês.</h3>
+            <p className="mt-2">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ornare
+              urna pharetra ut ac, pellentesque. Lorem ipsum dolor sit amet,
+              consectetur adipiscing elit. Ornare urna pharetra ut ac,
+              pellentesque.{" "}
             </p>
-            <a href="#" className="btn mt-4">
-              Começar a escrever
-            </a>
           </div>
-          <div className="grid-6">
-            <img src={logo} alt="Logo blog" />
+          <div className="grid-7">
+
+            <Main/>
+            <Main/>
+
           </div>
         </div>
       </section>
