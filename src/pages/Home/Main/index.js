@@ -1,25 +1,42 @@
-import profileImage from "profile/ny.jpg";
+// API
+import api from "services/api";
 
-const Main = () => {
+// Hooks
+import { useState, useEffect } from "react";
+
+const Main = ({content}) => {
+
+  const [user, setUser] = useState([]);
+  
+  useEffect(() => {
+
+    if(content){
+      api.get('user/' + content.id_user)
+      .then((response) => {
+        setUser(response.data);
+      })
+    }
+    
+  }, []);
+  
   return (
     <>
       <div className="py-3 bb-black">
-        <h6 className="color-gray">17 JUL 2024</h6>
-        <h6 className="uppercase color-primary">Tecnologia</h6>
+        <h6 className="color-gray"> {content.date} </h6>
+        <h6 className="uppercase color-primary"> {content.category} </h6>
 
-        <h4>O que esperar do cinema em 2021?</h4>
+        <h4> {content.title} </h4>
         <p className="mt-1">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-          Exercitationem veritatis sed optio labore.
+        {content.resume}
         </p>
 
         <div className="flex-start-row mt-3">
           <div className="profile">
-            <img src={profileImage} className="profile-img" alt="" />
+            <img src={user.ImageProfile} className="profile-img" alt="" />
           </div>
           <div className="ml-1">
-            <h6 className="color-primary">Násser Yousef</h6>
-            <h6 className="color-gray">@nasseruousef</h6>
+            <h6 className="color-primary">{user.name} {user.surname}</h6>
+            <h6 className="color-gray">@{user.user}</h6>
           </div>
         </div>
       </div>

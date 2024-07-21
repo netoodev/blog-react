@@ -6,7 +6,39 @@ import Banner from "./Banner";
 import Card from "./Card";
 import Main from "./Main";
 
+// API
+import api from "services/api";
+
+// Hooks
+import { useState, useEffect } from "react";
+
 const Home = () => {
+
+  // Variáveis de estado
+  const [main, setMain] = useState([]);
+  const [mostSeen, setMostSeen] = useState([]);
+  const [banner, setBanner] = useState([]);
+
+  useEffect(() => {
+
+    api.get('posts?star=5&_limit=2&_order=desc')
+    .then((response) => {
+      setMain(response.data);
+    });
+
+    api.get('posts?_sort=date&_order=desc&_limit=1')
+    .then((response) => {
+      setBanner(response.data);
+    });
+
+    api.get('posts?_limit=3')
+    .then((response) => {
+      setMostSeen(response.data);
+    });
+
+  }, []);
+
+  
   return (
     <>
       <Hero />
@@ -17,7 +49,7 @@ const Home = () => {
             <img src={starIcon} className="icon-l" alt="Ícone de Destaque" />
 
             <h3 className="mt-2">
-              Os melhores e mais bem votados posts do mês.
+              Os melhores e mais bem votados posts.
             </h3>
             <p className="mt-2">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ornare
@@ -28,9 +60,11 @@ const Home = () => {
           </div>
           <div className="grid-7">
 
-
-            <Main />
-            <Main />
+            {
+              main.map((item) => {
+                return <Main key={item.id} content={item} />
+              })
+            }
 
 
           </div>
