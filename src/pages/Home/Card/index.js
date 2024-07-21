@@ -1,21 +1,19 @@
-import img1 from "img/01.png";
 
-const Card = () => {
+const Card = ({content}) => {
   return (
     <>
       <div className="grid-4 card p-0">
         <div className="thumb hidden">
           <a href="#">
-            <img src={img1} alt="" />
+            <img src={content.imageUrl} alt="" />
           </a>
         </div>
         <div className="mt-2 px-2">
-          <h6 className="color-gray">17 JUL 2024</h6>
-          <h6 className="uppercase color-primary">Tecnologia</h6>
-          <h4>O que esperar do cinema em 2021?</h4>
+          <h6 className="color-gray">{content.date}</h6>
+          <h6 className="uppercase color-primary">{content.category}</h6>
+          <h4>{content.title}</h4>
           <p className="mt-1">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-            Exercitationem veritatis sed optio labore.
+          {content.resume}
           </p>
           <div className="my-3">
             <a href="#" className="link color-primary">

@@ -26,7 +26,7 @@ const Home = () => {
       setMain(response.data);
     });
 
-    api.get('posts?_sort=date&_order=desc&_limit=1')
+    api.get('posts?id=8')
     .then((response) => {
       setBanner(response.data);
     });
@@ -81,16 +81,22 @@ const Home = () => {
           <div className="row">
 
 
-            <Card/>
-            <Card/>
-            <Card/>
+          {
+            mostSeen.map((item) => {
+              return <Card key={item.id} content={item} />
+            })
+          }
 
 
           </div>
         </section>
       </div>
 
-      <Banner/>
+      {
+        banner.map((item) => {
+          return <Banner key={item.id} content={item} />
+        })
+      }
 
       
     </>
