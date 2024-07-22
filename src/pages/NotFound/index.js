@@ -5,6 +5,9 @@ import Footer from "pages/Footer";
 // Image
 import Logo from "svg/blog-logo2.svg";
 
+// Link
+import { Link } from "react-router-dom";
+
 const NotFound = () => {
     return (
         <>
@@ -21,7 +24,7 @@ const NotFound = () => {
                         <h5 className="text-center">Página não encontrada!</h5>
                         <p className="text-center mt-1">A página que você tá procurando não existe ou foi removida. Clique para voltar para o site.
                         </p>
-                        <button className="btn mt-3 w-100">Voltar p/ home</button>
+                        <Link to='/' className="btn mt-3 w-100 text-center">Voltar p/ home</Link>
                     </div>
                 </div>
                 <div className="grid-4 p-0 disappear"></div>
