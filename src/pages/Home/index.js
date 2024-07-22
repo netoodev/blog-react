@@ -1,5 +1,9 @@
 import starIcon from "svg/icon-star.svg";
 
+// Header e Footer
+import Header from "pages/Header";
+import Footer from "pages/Footer";
+
 // Components
 import Hero from "./Hero";
 import Banner from "./Banner";
@@ -41,6 +45,7 @@ const Home = () => {
   
   return (
     <>
+      <Header/>
       <Hero />
 
       <section className="container">
@@ -98,7 +103,7 @@ const Home = () => {
         })
       }
 
-      
+      <Footer/>
     </>
   );
 };

@@ -13,11 +13,6 @@ const Header = () => {
           <ul className="menu">
             <li>
               <a href="#" className="p-1">
-                Categorias
-              </a>
-            </li>
-            <li>
-              <a href="#" className="p-1">
                 Sobre
               </a>
             </li>
