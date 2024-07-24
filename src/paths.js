@@ -9,11 +9,13 @@ import Post from "pages/Post";
 import Profile from "pages/Profile";
 import Search from "pages/Search";
 import Home from "pages/Home";
+import ScrollToTop from "hooks/ScrollToTop";
 
 const Paths = () => {
     return (
         <>
             <BrowserRouter>
+                <ScrollToTop />
                 <Routes>
                     <Route path="/" element={<Home/>} />
                     <Route path="/contact" element={<Contact/>} />
